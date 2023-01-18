@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+:root{
+    --ff-main: 'Outfit', sans-serif;
+
+    --fw-lighter: 300;
+    --fw-regular: 400;
+    --fw-bolder: 600;
+
+    --clr-primary-softblue: hsl(215, 51%, 70%);
+    --clr-primary-cyan: hsl(178, 100%, 50%);
+
+    --clr-neutral-900: hsl(217, 54%, 10%);
+    --clr-neutral-700: hsl(217, 54%, 11%);
+    --clr-neutral-500: hsl(216, 50%, 16%);
+    --clr-neutral-300: hsl(215, 32%, 27%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+
+}
+
+
+/* Reset */
+
+*, *::before, *::after {
+box-sizing: border-box;
+}
+* {
+margin: 0;
+}
+html, body {
+min-height: 100vh;
+}
+body {
+line-height: 1.5;
+-webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+display: block;
+max-width: 100%;
+}
+input, button, textarea, select {
+font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+overflow-wrap: break-word;
+}
+#root, #__next {
+isolation: isolate;
+}
+
+
+/* Main CSS */
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--clr-neutral-700);
+    font-family: var(--ff-main);
+}
+
+.nft{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    max-width: 320px;
+    margin: 1.5rem 6%;
+    padding: 1.25rem;
+
+    background-color: var(--clr-neutral-500);
+    box-shadow: 0 5px 5px 30px rgb(0 0 0 / 8%),
+                0 -12px 30px rgb(0 0 0 / 8%),  
+                0 12px 4px 12px rgb(0 0 0 / 10%);
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.nft__image{
+    border-radius: 0.8rem;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--clr-primary-cyan);
+    opacity: 0;
+    z-index: 3;
+    transition: all 0.2s ease;
+}
+
+.view-icon{
+    position: absolute;
+    top: 42%;
+    left: 41%;
+    opacity: 0;
+    z-index: 5;
+    transition: all 0.2s ease;
+}
+
+.nft__image:hover .overlay{
+    opacity: 0.6;
+}
+.nft__image:hover .view-icon{
+    opacity: 1;
+}
+
+
+.nft__details{
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.nft__name{
+    font-size: 1.3rem;
+    font-weight: var(--fw-bolder);
+    letter-spacing: 1.5px;
+    color: var(--clr-neutral-100);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nft__name:hover{
+    color: var(--clr-primary-cyan);
+}
+
+.nft__description{
+    font-size: 1rem;
+    color: var(--clr-primary-softblue);
+    font-weight: var(--fw-lighter);
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+}
+
+.nft__info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 0.95rem;
+    border: none;
+    padding-bottom: 1.2rem;
+    border-bottom: 0.5px solid var(--clr-primary-softblue);
+}
+
+.nft__ethereum{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    color: var(--clr-primary-cyan);
+    letter-spacing: 0.5px;
+}
+
+.ethereum-icon{
+    height: 18px;
+    width: 11px;
+}
+
+.nft__time-left{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--clr-primary-softblue);
+}
+
+.clock-icon{
+    width: 17px;
+    height: 17px;
+}
+
+.owner{
+    display: flex;
+    align-items: center;
+    gap: 1.125rem;
+
+}
+
+.owner__avatar{
+    border: 1px solid var(--clr-neutral-100);
+    border-radius: 50%;
+    width: 12%;
+}
+
+.owner__info{
+    font-size: 0.975rem;
+    color: var(--clr-primary-softblue);
+    letter-spacing: 0;
+}
+
+.owner__name{
+    color: var(--clr-neutral-100);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.owner__name:hover{
+    color: var(--clr-primary-cyan);
+}
+
+@media (min-width: 600px){
+    .nft{
+        padding-bottom: 1.375rem;
+    }
+
+    .nft__name{
+        font-size: 1.3rem;
+    }
+
+    .nft__info{
+        font-size: 0.95rem;
+    }
+
+    .owner__avatar{
+        width: 10%;
+    }
+
+    .owner__info{
+        font-size: 0.9rem;
+    }
+}
